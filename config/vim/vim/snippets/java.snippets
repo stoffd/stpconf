@@ -1,0 +1,181 @@
+snippet Main
+	public class ${1:Main} {
+		
+		public static void main (String [] args) {
+			${2:/* code */}
+		}
+	}
+
+snippet main
+	public static void main (String [] args) {
+		${1:/* code */}
+	}
+
+snippet prn
+	System.out.println (${1:"}${2:/*text*/}${3:"});
+
+snippet pu
+	public
+snippet po
+	protected
+snippet pr
+	private
+snippet st
+	static
+snippet fi
+	final
+snippet ab
+	abstract
+snippet re
+	return
+snippet br
+	break;
+snippet de
+	default:
+		${1}
+snippet ca
+	catch(${1:Exception} ${2:e}) ${3}
+snippet th
+	throw 
+snippet sy
+	synchronized
+snippet im
+	import
+snippet j.u
+	java.util
+snippet j.i
+	java.io.
+snippet j.b
+	java.beans.
+snippet j.n
+	java.net.
+snippet j.m
+	java.math.
+snippet if{
+	if (${1:x} ${2:==} ${3:0}) {
+		${4:/*code*/}
+	}
+
+snippet if
+	if (${1:x} ${2:==} ${3:0})
+		${4:/*code*/}
+snippet el
+	else
+		${1:/*code*/}
+
+snippet el{
+	else {
+		${1:/*code*/}
+	} 
+
+snippet elif
+	else if (${1:x} ${2:==} ${3:0}) 
+		${4:/*code*/}
+
+snippet elif{
+	else if (${1:x} ${2:==} ${3:0}) { 
+		${4:/*code*/}
+	}
+
+snippet wh
+	while (${1:i} ${2:==} ${3:0})
+		${4:/*code*/}
+
+snippet wh{
+	while (${1:i} ${2:==} ${3:0}){
+		${4:/*code*/}
+	}
+
+snippet for
+	for (${1:i} ${2:=} ${3:0}; ${4:i} ${5:!=} ${6:y}; ${7:++i})
+		${8:/*code*/}
+
+
+snippet for{
+	for (${1:i} ${2:=} ${3:0}; ${4:i} ${5:!=} ${6:y}; ${7:++i}) { 
+		${8:/*code*/}
+	}
+
+snippet fore
+	for (${1} : ${2}) ${3}
+
+snippet sw
+	switch (${1:c}) {
+		
+		case ${2: 0}:
+			${3:/*code*/}
+			break;
+
+		default:
+			${4:/*code*/}
+			break;
+
+	}
+
+snippet cs
+	case ${1: 0}:
+		${2:/*code*/}
+		break;
+
+snippet	tc 
+	public class ${1:`Filename()`} extends ${2:TestCase} {
+	
+		${3}
+		
+	}
+
+snippet t
+	public void test${1:Name}() throws Exception ${2}
+
+snippet cl
+	class ${1:Foo} {
+
+		public $1() {
+			${2}	
+		}
+	}
+
+
+snippet in
+	interface ${1:`Filename("", "untitled")`} ${2:extends Parent} {
+		${3}
+	}
+
+snippet m
+	/**	${1: description}	*/
+	${2:void} ${3:method}(${4}) ${5:throws Exception } {
+		${6}
+	}
+
+snippet v
+	${1:String} ${2:var}${3: = null}${4};${5}
+snippet co
+	static public final ${1:String} ${2:var} = ${3};${4}
+snippet cos
+	static public final String ${1:var} = "${2}";${3}
+snippet as
+	assert ${1:test} : "${2:Failure message}";${3}
+
+# fileClasses
+# just add extended methods if u needed
+snippet readf
+	/*SNIPPET!*/
+	class ${1:ReadFromFileStream} {
+
+		private int size;
+		private InputStream f1;
+			
+		public $1() throws Exception{
+			f1 = new FileInputStream ("new.txt");
+	//available returned number of bytes which allow to read
+			size = ${2:f1.available()}; 
+			this.${3:readSizeFromFile()};
+		}
+
+		void readSizeFromFile() throws Exception{
+			for (int i=0; i < this.size; ++i) { 
+				System.out.print((char) this.f1.read()); 
+			}
+		}
+	}
+

@@ -1,0 +1,156 @@
+snippet pr
+	<project name="${1:MyProject}" default="${2:all}">
+		${3}
+	</project>
+
+snippet tr
+	<target name="${1:all}" description="${2:Do the entire build}" depends="${3:depend}">
+		${4}
+	</target>
+
+snippet tmkdir
+	<target name="${1:make.dirs}" description="${2:Make a dir}" depends="${3:depend}">
+		<mkdir dir="${4:bin/}"/>
+	</target>
+
+snippet tclean
+	<target name="${1:clean}" description="${2:Clean up}" depends="${3:depend}">
+		<delete dir="${4:bin/}"/>
+	</target>
+
+snippet tcompile
+	<target name="${1:compile}" description="${2:compile java}"  depends="${3:make.dirs}">
+		<javac destdir="${4:bin/}" classpath="${5:packet.jar}">
+			<src path="${6:src/}"/>
+		</javac>
+	</target>
+
+snippet tjar
+	<target name="${1:stuff.jar}" description="${2:make jar file}" depends="${3:compile}">
+		<jar destfile="${4:build/stuff.jar}">
+			<fileset dir="${5:build/class}">
+				<include name="${6:**/*.class}"/>
+				<exclude name="${7:**/CVS"/}>
+			</fileset>
+		</jar>
+	</target>
+
+snippet mkdir
+	<mkdir dir="${1:bin}"/>
+
+snippet rm 
+	<delete dir="${1:bin}"/>
+
+snippet echo
+	<echo>${1:some text}</echo>
+
+snippet compile
+	<javac destdir="${1:bin/}" classpath="${2:packet.jar}">
+		<src path="${3:src/}"/>
+	</javac>
+
+snippet path
+	<path id="${1:myclasspath}" >
+		<fileset dir="${2:lib}">
+			<include name="${3:**/*.jar}"/>
+		</fileset>
+	</path>
+
+snippet jar
+	<jar destfile="${1:build/stuff.jar}">
+		<fileset dir="${2:build/class}">
+			<include name="${3:**/*.class}"/>
+			<exclude name="${4:**/CVS"/}>
+		</fileset>
+	</jar>
+
+snippet fset
+	<fileset dir="${1:build/class}">
+		<include name="${2:**/*.class}"/>
+		<exclude name="${3:**/CVS"/}>
+	</fileset>
+
+snippet var
+	<property name="${1:name}" value="${2:value}"/>
+
+snippet helloWorld
+	
+	<project name="${1:MyProject}" default="compile">
+
+		<target name="make.dirs" description="Make a dir" depends="">
+			<mkdir dir="bin/"/>
+		</target>
+
+		<target name="compile" description="compile java"  depends="make.dirs">
+			<javac destdir="bin/" classpath="">
+				<src path="src/"/>
+			</javac>
+		</target>
+
+		<target name="clean" description="Clean up" depends="">
+			<delete dir="bin/"/>
+		</target>
+		
+	</project>
+
+snippet miniProject
+	<project name="MyProject" default="compile">
+		<property name="SRC_PATH" value="./src/"/>
+		<property name="BIN_PATH" value="./bin/"/>
+		<property name="DOC_PATH" value="./doc/"/>
+		
+		<target name="make.dirs" description="Make a dir" depends="">
+			<mkdir dir="${BIN_PATH}"/>
+			<mkdir dir="${DOC_PATH}"/>
+		</target>
+
+		<target name="compile" description="compile java"  depends="javadoc">
+			<javac destdir="${BIN_PATH}" classpath="">
+				<src path="${SRC_PATH}"/>
+			</javac>
+		</target>
+
+		<target name="clean" description="Clean up" depends="">
+			<delete dir="${BIN_PATH}"/>
+			<delete dir="${DOC_PATH}"/>
+		</target>
+
+
+		<target name="javadoc" description="javadoc" depends="make.dirs">
+			<javadoc packagenames="myPackage.*"
+					sourcepath="${SRC_PATH}"
+					destdir="${DOC_PATH}"
+					classpath=""
+					author="true"
+					version="true"
+					use="true"
+					doctitle="&lt;h1&gt;API&lt;/h1&gt;"
+		   />	
+		</target>
+	</project>
+
+# make snippets
+#
+#
+#
+#
+
+
+snippet make
+	CC=${1:gcc}
+	CFLAGS=${2:-c -Wall}
+	LDFLAGS=${3: }
+	SOURCES=${4:main.c}
+	OBJECTS=${5:$(SOURCES:.cpp=.o)}
+	EXECUTABLE=${6:main}
+
+	all: $(SOURCES) $(EXECUTABLE)
+		
+	$(EXECUTABLE): $(OBJECTS) 
+		$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+	.cpp.o:
+		$(CC) $(CFLAGS) $< -o $@
+
+	clean: $(EXECUTABLE) $(OBJECTS)
+		rm -f $(EXECUTABLE)

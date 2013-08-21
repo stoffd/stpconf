@@ -1,0 +1,10 @@
+Virtualbox tale
+adduser  $CUR_USER vboxusers
+sudo modprobe vboxdrv
+/etc/slim/conf check
+pcmanfm at 3 tag
+firefox at 4 tag
+pidgin at 5 tag
+transmission at 4 tag
+xcompmgr config
+options-mobile_bee copy

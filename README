@@ -1,0 +1,5 @@
+wget https://stpconf.google.code.com/files/stpconf.tar.gz
+copy project to ~/code/gitWorkdir/
+tar xvfz *.tar.gz
+cd ~/code/gitWorkdir/stpconf/
+./updater.sh ./updater_config/[CONF_PATTERN].conf

@@ -1,0 +1,8 @@
+deb cdrom:[Debian GNU/Linux 7.1.0 _Wheezy_ - Official i386 DVD Binary-1 20130615-21:54]/ wheezy contrib main
+deb cdrom:[Debian GNU/Linux 7.1.0 _Wheezy_ - Official i386 DVD Binary-2 20130615-21:54]/ wheezy contrib main
+deb cdrom:[Debian GNU/Linux 7.1.0 _Wheezy_ - Official i386 DVD Binary-3 20130615-21:54]/ wheezy contrib main
+deb http://ftp.ru.debian.org/debian/ stable-updates main contrib
+deb http://ftp.ru.debian.org/debian/ stable main contrib
+deb http://repository.4geo.ru/ stable main
+deb http://packages.redsolution.ru/2gis lenny non-free
+

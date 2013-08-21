@@ -1,0 +1,3 @@
+file /etc/ppp/options-mobile
+user "mts"
+connect "/usr/sbin/chat -v -t15 -f /etc/ppp/chatscripts/mts.chat"

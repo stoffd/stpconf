@@ -1,0 +1,177 @@
+For aesthetic reasons, this theme does NOT have a dark variant. To make Sushi more readable, back up '/usr/share/sushi/style/gtk-style.css' and then, replace its contents with this:
+
+/*------------ start ------------*/
+@define-color np_fg_color #ddddde;
+@define-color np_bg_color #333;
+@define-color np_text_color #2e3436;
+
+@define-color info_bg_color @np_bg_color;
+@define-color info_fg_color @np_fg_color;
+
+* {
+    background-color: alpha(#000, 0.0);
+    color: @np_fg_color;
+}
+
+GtkWindow,
+GtkWindow GtkLabel {
+    color: @np_fg_color;
+}
+
+SushiFontWidget {
+    padding: 2px;
+}
+
+.button {
+    border-radius: 5px;
+    border: 0px;    
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (#999999),
+                                    to (black));
+}
+
+.button:hover {
+    border-radius: 5px;
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (#808080),
+                                    to (#333333));
+}
+
+.button:active {
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (black),
+                                    to (#999999));
+}
+
+GtkSourceView {
+    color: @np_text_color;
+    background-color: shade (@np_fg_color, 1.10);
+    font: Monospace 10;
+}
+
+.scrollbar.button {
+    background-color: transparent;
+    background-image: none;
+    color: @np_fg_color;
+}
+
+.scrollbar.button:prelight {
+    background-color: shade (@np_bg_color, 1.45);
+}
+
+.scrollbar.button:prelight:active {
+    background-color: shade (@np_bg_color, 1.70);
+}
+
+.scrollbar.button:insensitive {
+    background-image: none;
+    background-color: transparent;
+    color: transparent;
+}
+
+.scrollbar.slider {
+    border-width: 0px;
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (shade (@np_bg_color, 3.5)),
+                                    to (shade (@np_bg_color, 0.6)));
+}
+
+.scrollbar.slider.vertical {
+    background-image: -gtk-gradient (linear,
+                                    left top, right top,
+                                    from (shade (@np_bg_color, 3.5)),
+                                    to (shade (@np_bg_color, 0.6)));
+}
+
+.scrollbar.slider:prelight {
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (shade (@np_bg_color, 3.9)),
+                                    to (shade (@np_bg_color, 1.2)));
+}
+
+.scrollbar.slider.vertical:prelight {
+    background-image: -gtk-gradient (linear,
+                                    left top, right top,
+                                    from (shade (@np_bg_color, 3.9)),
+                                    to (shade (@np_bg_color, 1.2)));
+}
+
+.scrollbar.slider:prelight:active {
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (shade (@np_bg_color, 1.9)),
+                                    to (shade (@np_bg_color, 3.8)));
+}
+
+
+.scrollbar.slider.vertical:prelight:active {
+    background-image: -gtk-gradient (linear,
+                                    left top, right top,
+                                    from (shade (@np_bg_color, 1.9)),
+                                    to (shade (@np_bg_color, 3.8)));
+}
+
+.scrollbar.trough {
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (shade (@np_bg_color, 0.5)),
+                                    to (shade (@np_bg_color, 3.0)));
+}
+
+.scrollbar.trough.vertical {
+    background-image: -gtk-gradient (linear,
+                                    left top, right top,
+                                    from (shade (@np_bg_color, 0.5)),
+                                    to (shade (@np_bg_color, 3.0)));
+}
+
+.scrollbar.button:hover:active {
+    background-image: -gtk-gradient (linear,
+                                    left top, left bottom,
+                                    from (shade (@np_bg_color, 0.5)),
+                                    to (shade (@np_bg_color, 3.0)));
+}
+
+.scrollbar.button.vertical:hover:active {
+    background-image: -gtk-gradient (linear,
+                                    left top, right top,
+                                    from (shade (@np_bg_color, 0.5)),
+                                    to (shade (@np_bg_color, 3.0)));
+}
+
+.np-decoration {
+    font: bold italic;
+    color: @np_fg_color;
+}
+
+.np-decoration.button {
+    background-image: none;
+    padding: 4px;
+
+    border-image: none;
+    border-style: none;
+    border-radius: 0;
+    border-width: 0;
+    background-color: alpha (#000, 0.0);
+
+    -GtkWidget-focus-line-width: 0;
+}
+/*------------- end -------------*/
+
+=====================================
+For gnome-tweak-tool-3.6.0 to look more elegant, open '/usr/lib/python2.7/dist-packages/gtweak/tweakview.py' as root and comment out the following line (put the sign # at its start):
+
+ctx.add_provider (provider,6000)
+
+In some distros, the file may be at '/usr/lib/python2.7/site-packages/gtweak/tweakview.py'.
+=====================================
+Some users (in KDE, for example) might need to create '~/.mozilla/firefox/<YOUR_PROFILE>/chrome/userContent.css' with this in it:
+
+menu {
+  color: black ! important; 
+}

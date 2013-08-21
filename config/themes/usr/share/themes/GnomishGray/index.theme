@@ -1,0 +1,10 @@
+[X-GNOME-Metatheme]
+Name=GnomishGray
+Type=X-GNOME-Metatheme
+Comment=A clean gray theme
+Encoding=UTF-8
+GtkTheme=GnomishGray
+MetacityTheme=GnomishGray
+IconTheme=gnome
+CursorTheme=Adwaita
+CursorSize=24

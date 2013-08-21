@@ -1,0 +1,18 @@
+ipcp-accept-local
+ipcp-accept-remote
+lcp-echo-interval 30
+lcp-echo-failure 5
+noipdefault
+usepeerdns
+defaultroute
+replacedefaultroute
+noccp
+noaccomp
+noauth
+persist
+mtu 1492
+hide-password
+connect /bin/true
+pty "pppoe -I eth0 -C ac2" # <-- Тут имя вашего концентратора
+user 89090611025@moskvan
+password 8f6232vc
