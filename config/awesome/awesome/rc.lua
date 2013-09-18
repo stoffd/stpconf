@@ -219,7 +219,6 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "Return", function () os.execute("pcmanfm &") end),
-    awful.key({ modkey, "Control" }, "Return", function () os.execute("pcmanfm &") end),
     awful.key({ modkey, }, "b", function () os.execute("firefox &") end),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart),
@@ -323,15 +322,15 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons, opacity = 0.80 } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+	{ rule = { class = "Firefox" },
+	  properties = { tag = tags[1][4] } },
+	{ rule = { class = "Pcmanfm" },
+	  properties = { tag = tags[1][3] } },
+	{ rule = { class = "Vlc" },
+	  properties = { tag = tags[1][5] } },
+	{ rule = { class = "Icedove" },
+	  properties = { tag = tags[1][5] } },
 }
 -- }}}
 
@@ -372,6 +371,11 @@ end)
 
 os.execute("xfce4-volumed &")
 os.execute("xcompmgr -f -F -c -D10 &")
+os.execute("osmo &")
+os.execute("firefox &")
+os.execute("pcmanfm &")
+os.execute("vlc &")
+os.execute("icedove &")
 
 
 
